@@ -35,7 +35,7 @@ server.post('/', (req, res) => {
 
     db('accounts').insert(accountData)
         .then(accountId => {
-            res.status(201).json({ message: 'Successfully created account', accountID: accountId });
+            res.status(201).json({ message: 'Successfully created account', accountID: accountId[0] });
         })
         .catch(err => {
             res.status(500).json({ message: 'Unable to post the account data to the database' });
